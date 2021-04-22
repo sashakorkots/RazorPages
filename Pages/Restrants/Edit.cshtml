@@ -1,0 +1,45 @@
+@page
+@model RazorPages.Pages_Restrants.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Restrant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Restrant.Id" />
+            <div class="form-group">
+                <label asp-for="Restrant.Name" class="control-label"></label>
+                <input asp-for="Restrant.Name" class="form-control" />
+                <span asp-validation-for="Restrant.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restrant.Address" class="control-label"></label>
+                <input asp-for="Restrant.Address" class="form-control" />
+                <span asp-validation-for="Restrant.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restrant.PhoneNumber" class="control-label"></label>
+                <input asp-for="Restrant.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Restrant.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

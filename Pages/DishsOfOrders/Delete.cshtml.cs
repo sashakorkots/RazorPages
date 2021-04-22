@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using RazorPages.Models;
+
+namespace RazorPages.Pages_DishsOfOrders
+{
+    public class DeleteModel : PageModel
+    {
+        private readonly RazorPagesContext _context;
+
+        public DeleteModel(RazorPagesContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty]
+        public DishsOfOrder DishsOfOrder { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            DishsOfOrder = await _context.DishsOfOrder
+                .Include(d => d.OrderOfList).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (DishsOfOrder == null)
+            {
+                return NotFound();
+            }
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            DishsOfOrder = await _context.DishsOfOrder.FindAsync(id);
+
+            if (DishsOfOrder != null)
+            {
+                _context.DishsOfOrder.Remove(DishsOfOrder);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
+        }
+    }
+}
