@@ -20,10 +20,12 @@ namespace RazorPages.Pages_Regions
 
         public IList<Region> Region { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Region = await _context.Region
-                .Include(r => r.RestrantOfMenu).ToListAsync();
+            Region =  _context.Region
+                .Include(r => r.RestrantOfMenu).ToList();
+            Region =  _context.Region
+                .Include(r => r.CouriersOfRestrant).ToList();
         }
     }
 }

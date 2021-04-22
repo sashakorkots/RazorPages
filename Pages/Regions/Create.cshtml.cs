@@ -20,8 +20,10 @@ namespace RazorPages.Pages_Regions
 
         public IActionResult OnGet()
         {
-        ViewData["RestrantId"] = new SelectList(_context.Restrant, "Id", "Id");
-            return Page();
+            ViewData["RestrantId"] = new SelectList(_context.Restrant, "Id", "Id");
+            ViewData["CouriersOfRestrant"] = new SelectList(_context.Restrant);
+                return Page();
+            
         }
 
         [BindProperty]
