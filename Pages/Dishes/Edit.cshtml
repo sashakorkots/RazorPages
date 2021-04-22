@@ -1,5 +1,5 @@
 @page
-@model RazorPages.Pages_Movies.EditModel
+@model RazorPages.Pages_Dishes.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -18,6 +18,11 @@
                 <label asp-for="Dish.Name" class="control-label"></label>
                 <input asp-for="Dish.Name" class="form-control" />
                 <span asp-validation-for="Dish.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dish.Description" class="control-label"></label>
+                <input asp-for="Dish.Description" class="form-control" />
+                <span asp-validation-for="Dish.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Dish.TypeOfDish" class="control-label"></label>

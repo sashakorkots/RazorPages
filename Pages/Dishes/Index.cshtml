@@ -1,5 +1,5 @@
 @page
-@model RazorPages.Pages_Movies.IndexModel
+@model RazorPages.Pages_Dishes.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -15,6 +15,9 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Dish[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dish[0].Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Dish[0].TypeOfDish)
@@ -33,6 +36,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOfDish)

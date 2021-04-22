@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPages.Models;
 
-namespace RazorPages.Pages_Movies
+namespace RazorPages.Pages_Dishes
 {
     public class EditModel : PageModel
     {

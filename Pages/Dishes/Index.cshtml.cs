@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPages.Models;
 
-namespace RazorPages.Pages_Movies
+namespace RazorPages.Pages_Dishes
 {
     public class IndexModel : PageModel
     {
